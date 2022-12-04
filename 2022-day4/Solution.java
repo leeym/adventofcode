@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Solution {
 
-    private Queue<String> readInput() {
+    private Queue<String> readFile() {
         Queue<String> queue = new LinkedList<>();
         try {
             Scanner scanner = new Scanner(new File("input"));
@@ -24,7 +24,7 @@ public class Solution {
 
     @Test
     public void part1() {
-        Queue<String> queue = readInput();
+        Queue<String> queue = readFile();
         int count = 0;
         while (!queue.isEmpty()) {
             String line = queue.remove();
@@ -52,7 +52,7 @@ public class Solution {
 
     @Test
     public void test2() {
-        Queue<String> queue = readInput();
+        Queue<String> queue = readFile();
         int count = 0;
         while (!queue.isEmpty()) {
             String line = queue.remove();

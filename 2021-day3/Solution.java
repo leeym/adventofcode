@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Solution {
 
-    Queue<String> readInput() {
+    Queue<String> readFile() {
         Queue<String> queue = new LinkedList<>();
         try {
             Scanner scanner = new Scanner(new File("input"));
@@ -21,7 +21,7 @@ public class Solution {
 
     @Test
     public void part1() {
-        Queue<String> file = readInput();
+        Queue<String> file = readFile();
         List<String> list = new ArrayList<>();
         int R = 0;
         int C = 0;
@@ -56,7 +56,7 @@ public class Solution {
 
     @Test
     public void part2() {
-        Queue<String> file = readInput();
+        Queue<String> file = readFile();
         List<String> list = new ArrayList<>();
         int R = 0;
         int C = 0;

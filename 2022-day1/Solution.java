@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Solution {
 
-    Queue<String> readInput() {
+    Queue<String> readFile() {
         Queue<String> queue = new LinkedList<>();
         try {
             Scanner scanner = new Scanner(new File("input"));
@@ -22,7 +22,7 @@ public class Solution {
 
     @Test
     public void part1() {
-        Queue<String> file = readInput();
+        Queue<String> file = readFile();
         int sum = 0;
         int max = 0;
         while (!file.isEmpty()) {
@@ -39,7 +39,7 @@ public class Solution {
 
     @Test
     public void test2() {
-        Queue<String> file = readInput();
+        Queue<String> file = readFile();
         Queue<Integer> queue = new PriorityQueue<>(Comparator.naturalOrder());
         int sum = 0;
         while (!file.isEmpty()) {

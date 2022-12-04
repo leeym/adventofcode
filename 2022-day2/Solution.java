@@ -14,7 +14,7 @@ public class Solution {
         ROCK, PAPER, SCISSORS
     }
 
-    private Queue<String> readInput() {
+    private Queue<String> readFile() {
         Queue<String> list = new LinkedList<>();
         try {
             Scanner scanner = new Scanner(new File("input"));
@@ -48,7 +48,7 @@ public class Solution {
                 Choice.PAPER, Map.of(Choice.SCISSORS, 0, Choice.PAPER, 3, Choice.ROCK, 6),
                 Choice.SCISSORS, Map.of(Choice.ROCK, 0, Choice.SCISSORS, 3, Choice.PAPER, 6)
         );
-        Queue<String> list = readInput();
+        Queue<String> list = readFile();
         while (!list.isEmpty()) {
             String line = list.remove();
             String[] array = line.split(" ");
@@ -79,7 +79,7 @@ public class Solution {
                 Choice.PAPER, Map.of("Z", Choice.SCISSORS, "Y", Choice.PAPER, "X", Choice.ROCK),
                 Choice.SCISSORS, Map.of("Z", Choice.ROCK, "Y", Choice.SCISSORS, "X", Choice.PAPER)
         );
-        Queue<String> queue = readInput();
+        Queue<String> queue = readFile();
         while (!queue.isEmpty()) {
             String line = queue.remove();
             Map<String, Integer> map5 = Map.of("X", 0, "Y", 3, "Z", 6);

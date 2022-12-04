@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Solution {
 
-    Queue<String> readInput() {
+    Queue<String> readFile() {
         Queue<String> queue = new LinkedList<>();
         try {
             Scanner scanner = new Scanner(new File("input"));
@@ -23,7 +23,7 @@ public class Solution {
 
     @Test
     public void part1() {
-        Queue<String> file = readInput();
+        Queue<String> file = readFile();
         int depth = 0;
         int position = 0;
         while (!file.isEmpty()) {
@@ -41,7 +41,7 @@ public class Solution {
 
     @Test
     public void part2() {
-        Queue<String> file = readInput();
+        Queue<String> file = readFile();
         long depth = 0;
         long position = 0;
         long aim = 0;
