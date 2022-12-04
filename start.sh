@@ -11,14 +11,17 @@ fi
 if [ ! -f "$PROBLEM/README.md" ]; then
   curl -s $URL > $PROBLEM/README.md
   echo >> $PROBLEM/README.md
-  echo $URL >> $PROBLEM/README.md
+  echo "<a href=\"$URL\">$URL</a>" >> $PROBLEM/README.md
 fi
 
 # Java
 if [ ! -f "$PROBLEM/Solution.java" ]; then
   cat <<END > $PROBLEM/Solution.java
-import java.util.*;
-import org.junit.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
 
 public class Solution {
 
@@ -37,18 +40,18 @@ public class Solution {
 
     @Test
     public void part1() {
-	Queue<String> file = readInput();
-	while (!file.isEmpty()) {
-	    String line = file.remove();
-	}
+        Queue<String> file = readInput();
+        while (!file.isEmpty()) {
+            String line = file.remove();
+        }
     }
 
     @Test
     public void part2() {
-	Queue<String> file = readInput();
-	while (!file.isEmpty()) {
-	    String line = file.remove();
-	}
+        Queue<String> file = readInput();
+        while (!file.isEmpty()) {
+            String line = file.remove();
+        }
     }
 }
 END
