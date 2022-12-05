@@ -1,6 +1,6 @@
+import org.junit.Assert;
 import org.junit.Test;
 
-import javax.swing.plaf.IconUIResource;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -9,10 +9,10 @@ import java.util.Scanner;
 
 public class Solution {
 
-    Queue<String> readFile() {
+    Queue<String> readFile(String pathname) {
         Queue<String> queue = new LinkedList<>();
         try {
-            Scanner scanner = new Scanner(new File("input"));
+            Scanner scanner = new Scanner(new File(pathname));
             while (scanner.hasNextLine())
                 queue.add(scanner.nextLine());
             scanner.close();
@@ -22,9 +22,8 @@ public class Solution {
         return queue;
     }
 
-    @Test
-    public void part1() {
-        Queue<String> file = readFile();
+    public int part1(String pathname) {
+        Queue<String> file = readFile(pathname);
         Integer previous = null;
         int count = 0;
         while (!file.isEmpty()) {
@@ -34,12 +33,11 @@ public class Solution {
                 count++;
             previous = current;
         }
-        System.out.println(count);
+        return count;
     }
 
-    @Test
-    public void part2() {
-        Queue<String> file = readFile();
+    public int part2(String pathname) {
+        Queue<String> file = readFile(pathname);
         Queue<Integer> window = new LinkedList<>();
         Integer previous = null;
         int count = 0;
@@ -55,6 +53,26 @@ public class Solution {
                 count++;
             previous = current;
         }
-        System.out.println(count);
+        return count;
+    }
+
+    @Test
+    public void small1() {
+        Assert.assertEquals(7, part1("small"));
+    }
+
+    @Test
+    public void large1() {
+        Assert.assertEquals(1532, part1("large"));
+    }
+
+    @Test
+    public void small2() {
+        Assert.assertEquals(5, part2("small"));
+    }
+
+    @Test
+    public void large2() {
+        Assert.assertEquals(1571, part2("large"));
     }
 }
