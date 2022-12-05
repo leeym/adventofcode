@@ -124,22 +124,22 @@ public class Solution {
     }
 
     @Test
-    public void test1() {
-        Assert.assertEquals(4512, part1("test"));
+    public void small1() {
+        Assert.assertEquals(4512, part1("small"));
     }
 
     @Test
-    public void input1() {
-        Assert.assertEquals(11536, part1("input"));
+    public void large1() {
+        Assert.assertEquals(11536, part1("large"));
     }
 
     @Test
-    public void test2() {
-        Assert.assertEquals(1924, part2("test"));
+    public void small2() {
+        Assert.assertEquals(1924, part2("small"));
     }
 
     @Test
-    public void input2() {
-        Assert.assertEquals(1284, part2("input"));
+    public void large2() {
+        Assert.assertEquals(1284, part2("large"));
     }
 }
