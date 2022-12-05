@@ -25,10 +25,10 @@ import java.util.Scanner;
 
 public class Solution {
 
-    Queue<String> readFile() {
+    Queue<String> readFile(String pathname) {
         Queue<String> queue = new LinkedList<>();
         try {
-            Scanner scanner = new Scanner(new File("input"));
+            Scanner scanner = new Scanner(new File(pathname));
             while (scanner.hasNextLine())
                 queue.add(scanner.nextLine());
             scanner.close();
@@ -38,7 +38,6 @@ public class Solution {
         return queue;
     }
 
-    @Test
     public void part1() {
         Queue<String> file = readFile();
         while (!file.isEmpty()) {
@@ -46,12 +45,31 @@ public class Solution {
         }
     }
 
-    @Test
     public void part2() {
         Queue<String> file = readFile();
         while (!file.isEmpty()) {
             String line = file.remove();
         }
+    }
+
+    @Test
+    public void small1() {
+        Assert.assertEquals("", part1("small"));
+    }
+
+    @Test
+    public void large1() {
+        Assert.assertEquals("", part1("large"));
+    }
+
+    @Test
+    public void small2() {
+        Assert.assertEquals("", part2("small"));
+    }
+
+    @Test
+    public void large2() {
+        Assert.assertEquals("", part2("large"));
     }
 }
 END
