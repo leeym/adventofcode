@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
@@ -6,10 +7,10 @@ import java.util.*;
 
 public class Solution {
 
-    Queue<String> readFile() {
+    Queue<String> readFile(String pathname) {
         Queue<String> queue = new LinkedList<>();
         try {
-            Scanner scanner = new Scanner(new File("input"));
+            Scanner scanner = new Scanner(new File(pathname));
             while (scanner.hasNextLine())
                 queue.add(scanner.nextLine());
             scanner.close();
@@ -19,9 +20,8 @@ public class Solution {
         return queue;
     }
 
-    @Test
-    public void part1() {
-        Queue<String> file = readFile();
+    public int part1(String pathname) {
+        Queue<String> file = readFile(pathname);
         List<String> list = new ArrayList<>();
         int R = 0;
         int C = 0;
@@ -51,12 +51,11 @@ public class Solution {
                 epsilon.append('0');
             }
         }
-        System.out.println(Integer.parseInt(gamma.toString(), 2) * Integer.parseInt(epsilon.toString(), 2));
+        return Integer.parseInt(gamma.toString(), 2) * Integer.parseInt(epsilon.toString(), 2);
     }
 
-    @Test
-    public void part2() {
-        Queue<String> file = readFile();
+    public int part2(String pathname) {
+        Queue<String> file = readFile(pathname);
         List<String> list = new ArrayList<>();
         int R = 0;
         int C = 0;
@@ -108,6 +107,26 @@ public class Solution {
                     break;
             }
         } while (co2.size() != 1);
-        System.out.println(Integer.parseInt(oxygen.get(0), 2) * Integer.parseInt(co2.get(0), 2));
+        return Integer.parseInt(oxygen.get(0), 2) * Integer.parseInt(co2.get(0), 2);
+    }
+
+    @Test
+    public void small1() {
+        Assert.assertEquals(198, part1("small"));
+    }
+
+    @Test
+    public void large1() {
+        Assert.assertEquals(1071734, part1("large"));
+    }
+
+    @Test
+    public void small2() {
+        Assert.assertEquals(230, part2("small"));
+    }
+
+    @Test
+    public void large2() {
+        Assert.assertEquals(6124992, part2("large"));
     }
 }
