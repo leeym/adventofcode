@@ -7,10 +7,10 @@ import java.util.*;
 
 public class Solution {
 
-    private Queue<String> readFile() {
+    private Queue<String> readFile(String pathname) {
         Queue<String> queue = new LinkedList<>();
         try {
-            Scanner scanner = new Scanner(new File("input"));
+            Scanner scanner = new Scanner(new File(pathname));
             while (scanner.hasNextLine())
                 queue.add(scanner.nextLine());
             scanner.close();
@@ -20,15 +20,14 @@ public class Solution {
         return queue;
     }
 
-    @Test
-    public void part1() {
-        Queue<String> file = readFile();
+    public int part1(String pathname) {
+        Queue<String> file = readFile(pathname);
         int sum = 0;
         while (!file.isEmpty()) {
             String line = file.remove();
             sum += priority(shared(line.substring(0, line.length() / 2), line.substring(line.length() / 2)));
         }
-        System.out.println(sum);
+        return sum;
     }
 
     private Character shared(String... strings) {
@@ -48,13 +47,33 @@ public class Solution {
             return c - 'A' + 27;
     }
 
-    @Test
-    public void test2() {
-        Queue<String> file = readFile();
+    public int part2(String pathname) {
+        Queue<String> file = readFile(pathname);
         int sum = 0;
         while (!file.isEmpty()) {
             sum += priority(shared(file.remove(), file.remove(), file.remove()));
         }
-        System.out.println(sum);
+        return sum;
+    }
+
+
+    @Test
+    public void small1() {
+        Assert.assertEquals(157, part1("small"));
+    }
+
+    @Test
+    public void large1() {
+        Assert.assertEquals(8153, part1("large"));
+    }
+
+    @Test
+    public void small2() {
+        Assert.assertEquals(70, part2("small"));
+    }
+
+    @Test
+    public void large2() {
+        Assert.assertEquals(2342, part2("large"));
     }
 }
