@@ -38,15 +38,15 @@ public class Solution {
         return queue;
     }
 
-    public void part1() {
-        Queue<String> file = readFile();
+    public void part1(String pathname) {
+        Queue<String> file = readFile(pathname);
         while (!file.isEmpty()) {
             String line = file.remove();
         }
     }
 
-    public void part2() {
-        Queue<String> file = readFile();
+    public void part2(String pathname) {
+        Queue<String> file = readFile(pathname);
         while (!file.isEmpty()) {
             String line = file.remove();
         }
